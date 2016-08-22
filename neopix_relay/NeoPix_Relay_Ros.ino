@@ -176,24 +176,28 @@ void setup()
 
     digitalWrite(relayNum[i], RELAY_OFF); // HIGH
     pinMode(relayNum[i], OUTPUT);  
-    delay(4000); // Check that all relays are inactive at Reset
     i++;
   }
 
 } // void setup()
  
-
+unsigned long last_change_time = 0; 
 void loop()
 {
   nh.spinOnce(); 
   // handle relay flashing here
-  if (relayFlash){
-      digitalWrite(relayPin, RELAY_ON);// set the Relay ON
-      delay(1000);                   // Wait 1 second
-      digitalWrite(relayPin, RELAY_OFF);// set the Relay ON
-      delay(1000);                   // Wait 1 second
+    if (relayFlash){
+      if (millis() - last_change_time > 500) {
+          last_change_time = millis();
+          flash_on = !flash_on;
+          if (flash_on) {
+            digitalWrite(relayPin, RELAY_ON);
+          } else {
+            digitalWrite(relayPin, RELAY_OFF);
+          }
+      }
   }
-  delay(1);
+  delay(10);
  
 } // void loop()
 
