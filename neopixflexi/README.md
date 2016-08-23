@@ -1,3 +1,7 @@
+####Note: ####
+
+You might need to use Arduino MEGA for this. As number of LEDs increased, it needed more memory and got flaky on UNO. Also, for NeoPix I used external power.
+
 ##NeoPix_Flexi.ino###
 
 Code to subscribe Adafruit's Neopixel Flexi (8X32)
