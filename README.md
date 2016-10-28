@@ -1,4 +1,4 @@
-# Arduino_Projects
+# ROS_Arduino_Projects
 
 ###NeoPix.ino
 This program will fill a rectangular area on Neo pixel tile (8X8) with the color specified.
